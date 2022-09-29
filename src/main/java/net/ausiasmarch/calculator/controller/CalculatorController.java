@@ -25,5 +25,24 @@ public class CalculatorController {
    
         return calculatorService.add(op1,op2);
     }
+    
+    @GetMapping("/minus/{op1}/{op2}")
+    public ResponseEntity<Calculation> minus(@PathVariable int op1, @PathVariable int op2) {
+   
+        return calculatorService.minus(op1,op2);
+    }
+
+    @GetMapping("/multiply/{op1}/{op2}")
+    public ResponseEntity<Calculation> multiply(@PathVariable int op1, @PathVariable int op2) {
+   
+        return calculatorService.multiply(op1,op2);
+    }
+
+    @GetMapping("/div/{op1}/{op2}")
+    public ResponseEntity<Calculation> div(@PathVariable int op1, @PathVariable int op2) {
+   
+        return calculatorService.div(op1,op2);
+    }
+
 
 }
