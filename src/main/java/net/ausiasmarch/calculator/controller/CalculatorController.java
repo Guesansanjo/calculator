@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.ausiasmarch.calculator.entity.Calculation;
 import net.ausiasmarch.calculator.service.CalculatorService;
-
+// hehe xD
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
