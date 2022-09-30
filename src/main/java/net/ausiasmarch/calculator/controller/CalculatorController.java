@@ -1,9 +1,12 @@
 package net.ausiasmarch.calculator.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,5 +47,11 @@ public class CalculatorController {
         return calculatorService.div(op1,op2);
     }
 
+
+    @PostMapping
+    public ResponseEntity<Calculation> calculadora(@RequestBody Calculation oCalc){
+        oCalc.setResult(oCalc.getOp1() + oCalc.getOp2());
+        return new ResponseEntity<Calculation>(oCalc, HttpStatus.OK);
+    }
 
 }
