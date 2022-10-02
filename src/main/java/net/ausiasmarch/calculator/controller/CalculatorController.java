@@ -48,10 +48,35 @@ public class CalculatorController {
         return calculatorService.div(op1,op2);
     }
 
-
-    @PostMapping
-    public ResponseEntity<Calculation> calculadora(@RequestBody Calculation oCalc){
+    @CrossOrigin
+    @PostMapping(path = "/add")
+    public ResponseEntity<Calculation> calculadoraSuma(@RequestBody Calculation oCalc){
+    
         oCalc.setResult(oCalc.getOp1() + oCalc.getOp2());
+        return new ResponseEntity<Calculation>(oCalc, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @PostMapping(path = "/minus")
+    public ResponseEntity<Calculation> calculadoraResta(@RequestBody Calculation oCalc){
+    
+        oCalc.setResult(oCalc.getOp1() - oCalc.getOp2());
+        return new ResponseEntity<Calculation>(oCalc, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @PostMapping(path = "/multiply")
+    public ResponseEntity<Calculation> calculadoraMult(@RequestBody Calculation oCalc){
+    
+        oCalc.setResult(oCalc.getOp1() * oCalc.getOp2());
+        return new ResponseEntity<Calculation>(oCalc, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @PostMapping(path = "/div")
+    public ResponseEntity<Calculation> calculadoraDiv(@RequestBody Calculation oCalc){
+    
+        oCalc.setResult(oCalc.getOp1() / oCalc.getOp2());
         return new ResponseEntity<Calculation>(oCalc, HttpStatus.OK);
     }
 
